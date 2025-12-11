@@ -4,7 +4,7 @@
 
 ## Requirements
 
-Python 3.10
+Python 3.13
 
 Playwright
 
@@ -22,8 +22,8 @@ pytest --alluredir=allure-results
 
 ## Run in Docker
 
-docker build -t effective-tests .
+docker build -t web-tests .
 
-docker run -it effective-tests
+docker run -it web-tests
 
 ## Known Issues

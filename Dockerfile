@@ -1,0 +1,17 @@
+FROM python:3.10-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y ca-certificates && update-ca-certificates
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN playwright install --with-deps chromium
+
+COPY . .
+
+CMD ["pytest", "--alluredir=allure-results"]
